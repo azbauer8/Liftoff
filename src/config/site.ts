@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "ACME",
-  title: "Next.js + NextUI Template",
-  description: "Get started with a beautifully designed site in mintues.",
+  name: "Liftoff",
+  title: "A Starter Kit for Next.js with NextUI",
+  description: "Get a well-structured and beautifully designed site up and running in mintues.",
   creator: "Zach Bauer",
   navItems: [
     {

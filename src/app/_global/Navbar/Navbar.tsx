@@ -24,6 +24,7 @@ import {
   DropdownTrigger,
 } from "@nextui-org/react"
 import { ChevronDownIcon } from "lucide-react"
+import Image from "next/image"
 
 export default function Navbar() {
   const path = usePathname()
@@ -32,6 +33,12 @@ export default function Navbar() {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
+            <Image
+              src="/favicon.png"
+              width={20}
+              height={20}
+              alt={siteConfig.name}
+            />
             <p className="font-bold text-inherit">{siteConfig.name}</p>
           </NextLink>
         </NavbarBrand>
