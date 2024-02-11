@@ -11,8 +11,11 @@ export default function Home() {
   return (
     <div>
       <MotionLandingHeader>
-        <LandingTitle>{siteConfig.title}</LandingTitle>
-        <LandingDescription>{siteConfig.description}</LandingDescription>
+        <LandingTitle>A starter kit for Next.js with NextUI</LandingTitle>
+        <LandingDescription>
+          Get a well-structured and beautifully designed site up and running in
+          mintues.
+        </LandingDescription>
         <LandingActions>
           <Button href="/example" as={Link} variant="flat">
             Example Page

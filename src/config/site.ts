@@ -2,10 +2,8 @@ import { GeistSans } from "geist/font/sans"
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Liftoff",
-  title: "A Starter Kit for Next.js with NextUI",
-  description:
-    "Get a well-structured and beautifully designed site up and running in mintues.",
+  title: "Liftoff",
+  description: "A starter kit for Next.js with NextUI",
   creator: "Zach Bauer",
   favicon: "/favicon.ico",
   font: GeistSans,
