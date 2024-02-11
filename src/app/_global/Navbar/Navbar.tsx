@@ -1,5 +1,5 @@
 "use client"
-import { link as linkStyles } from "@nextui-org/theme"
+import { link as linkStyles } from "@nextui-org/react"
 
 import { siteConfig } from "@/config/site"
 import clsx from "clsx"
