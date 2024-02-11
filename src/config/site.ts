@@ -1,7 +1,6 @@
-import { Inter } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
 
 export type SiteConfig = typeof siteConfig
-const inter = Inter({ subsets: ["latin"] })
 
 export const siteConfig = {
   name: "Liftoff",
@@ -9,7 +8,7 @@ export const siteConfig = {
   description:
     "Get a well-structured and beautifully designed site up and running in mintues.",
   creator: "Zach Bauer",
-  font: inter,
+  font: GeistSans,
   navItems: [
     {
       label: "Home",

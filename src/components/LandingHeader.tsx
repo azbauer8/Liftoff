@@ -36,7 +36,7 @@ function MotionLandingHeader({
     <motion.div
       initial="hidden"
       animate="visible"
-      transition={{ duration: 1, type: "spring" }}
+      transition={{ duration: 1 }}
       variants={blurAnimation}
       className={clsx(
         "mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20",

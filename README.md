@@ -6,8 +6,7 @@ A template for creating sites with Next.js 14 (app directory) and NextUI (v2).
 
 - Global layout with navbar and footer
 - Theme toggle (light, dark, and system)
-- Landing page header component
-- Minor coloring tweaks
+- Several reusable components including landing and general page headers
 
 ## Technologies Used
 

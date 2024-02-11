@@ -15,6 +15,7 @@ import {
 } from "@nextui-org/react"
 import { usePathname } from "next/navigation"
 
+import useScrollPosition from "@/hooks/useScrollPos"
 import {
   Button,
   Dropdown,
@@ -27,47 +28,74 @@ import Image from "next/image"
 
 export default function Navbar() {
   const path = usePathname()
+  const scrollPosition = useScrollPosition()
   return (
-    <NextUINavbar maxWidth="xl" position="sticky" isBordered>
-      <NavbarContent
-        as="div"
-        className="basis-1/5 sm:basis-full"
-        justify="start"
-      >
-        <NavbarBrand className="gap-3 max-w-fit">
+    <NextUINavbar
+      maxWidth="xl"
+      position="sticky"
+      isBlurred={false}
+      classNames={{
+        base: "bg-transparent",
+        wrapper: `transition-all ease-in-out duration-300 rounded-3xl ${
+          scrollPosition <= 50
+            ? "bg-transparent"
+            : "mt-2.5 mx-5 bg-default/40 dark:bg-default/20 backdrop-blur-2xl shadow-lg"
+        }`,
+      }}
+    >
+      <NavbarContent as="div" justify="start">
+        <DesktopNavLinks />
+        <MobileNavLinks />
+      </NavbarContent>
+
+      <NavbarContent as="div" justify="end">
+        <ThemeToggle />
+      </NavbarContent>
+    </NextUINavbar>
+  )
+
+  function DesktopNavLinks() {
+    return (
+      <div className="hidden md:flex gap-2.5">
+        <NavbarBrand>
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Image src="/favicon.png" width={20} height={20} alt="Site logo" />
-            <p className="font-bold text-inherit">{siteConfig.name}</p>
+            <p className="font-bold">{siteConfig.name}</p>
           </NextLink>
         </NavbarBrand>
 
-        <div className="hidden md:flex gap-1 justify-start ml-2">
+        <div className="space-x-1">
           {siteConfig.navItems.map((item) => (
             <Button
               key={item.href}
               href={item.href}
               as={Link}
               variant={path === item.href ? "flat" : "light"}
-              className="px-0 mx-0"
             >
               {item.label}
             </Button>
           ))}
         </div>
-        <MobileNav />
-      </NavbarContent>
+      </div>
+    )
+  }
 
-      <NavbarContent as="div" className="basis-1 pl-4" justify="end">
-        <ThemeToggle />
-      </NavbarContent>
-    </NextUINavbar>
-  )
-
-  function MobileNav() {
+  function MobileNavLinks() {
     return (
       <Dropdown>
-        <DropdownTrigger className="flex md:hidden">
-          <Button isIconOnly variant="light">
+        <DropdownTrigger className="flex md:hidden -translate-x-3">
+          <Button variant="light">
+            <NavbarBrand>
+              <div className="flex justify-start items-center gap-1">
+                <Image
+                  src="/favicon.png"
+                  width={20}
+                  height={20}
+                  alt="Site logo"
+                />
+                <p className="font-bold">{siteConfig.name}</p>
+              </div>
+            </NavbarBrand>
             <ChevronDownIcon size={20} />
           </Button>
         </DropdownTrigger>
