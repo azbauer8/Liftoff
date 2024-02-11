@@ -4,7 +4,7 @@ import { Providers } from "@/app/_global/Providers"
 import "@/app/_global/styles.css"
 import { siteConfig } from "@/config/site"
 import clsx from "clsx"
-import { Metadata, Viewport } from "next"
+import { Metadata } from "next"
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -14,13 +14,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
   },
-}
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
 }
 
 export default function RootLayout({

@@ -71,7 +71,7 @@ function LandingDescription({
   return (
     <Balance
       className={clsx(
-        "max-w-[750px] text-center text-lg text-muted-foreground sm:text-xl",
+        "max-w-[750px] text-center text-lg text-default-500 sm:text-xl",
         className,
       )}
       {...props}
