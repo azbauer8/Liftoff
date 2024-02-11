@@ -1,6 +1,9 @@
+"use client"
+
 import Balance from "react-wrap-balancer"
 
 import clsx from "clsx"
+import { MotionProps, motion } from "framer-motion"
 
 function LandingHeader({
   className,
@@ -11,12 +14,38 @@ function LandingHeader({
     <section
       className={clsx(
         "mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20",
-        className
+        className,
       )}
       {...props}
     >
       {children}
     </section>
+  )
+}
+
+function MotionLandingHeader({
+  className,
+  children,
+  ...props
+}: MotionProps & React.HTMLAttributes<HTMLDivElement>) {
+  const blurAnimation = {
+    hidden: { filter: "blur(10px)", opacity: 0 },
+    visible: { filter: "blur(0px)", opacity: 1 },
+  }
+  return (
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 1, type: "spring" }}
+      variants={blurAnimation}
+      className={clsx(
+        "mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </motion.div>
   )
 }
 
@@ -28,7 +57,7 @@ function LandingTitle({
     <h1
       className={clsx(
         "text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]",
-        className
+        className,
       )}
       {...props}
     />
@@ -43,7 +72,7 @@ function LandingDescription({
     <Balance
       className={clsx(
         "max-w-[750px] text-center text-lg text-muted-foreground sm:text-xl",
-        className
+        className,
       )}
       {...props}
     />
@@ -58,11 +87,17 @@ function LandingActions({
     <div
       className={clsx(
         "flex w-full items-center justify-center space-x-4 py-4 md:pb-10",
-        className
+        className,
       )}
       {...props}
     />
   )
 }
 
-export { LandingHeader as PageHeader, LandingTitle as PageHeaderHeading, LandingDescription as PageHeaderDescription, LandingActions as PageActions }
+export {
+  MotionLandingHeader,
+  LandingHeader,
+  LandingTitle,
+  LandingDescription,
+  LandingActions,
+}

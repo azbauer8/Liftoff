@@ -1,8 +1,8 @@
 import {
-  PageActions,
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
+  LandingActions,
+  LandingDescription,
+  LandingTitle,
+  MotionLandingHeader,
 } from "@/components/LandingHeader"
 import { siteConfig } from "@/config/site"
 import { Button, Link } from "@nextui-org/react"
@@ -10,10 +10,10 @@ import { Button, Link } from "@nextui-org/react"
 export default function Home() {
   return (
     <div>
-      <PageHeader>
-        <PageHeaderHeading>{siteConfig.title}</PageHeaderHeading>
-        <PageHeaderDescription>{siteConfig.description}</PageHeaderDescription>
-        <PageActions>
+      <MotionLandingHeader>
+        <LandingTitle>{siteConfig.title}</LandingTitle>
+        <LandingDescription>{siteConfig.description}</LandingDescription>
+        <LandingActions>
           <Button href="/example" as={Link} variant="flat">
             Example Page
           </Button>
@@ -26,8 +26,8 @@ export default function Home() {
           >
             Source Code
           </Button>
-        </PageActions>
-      </PageHeader>
+        </LandingActions>
+      </MotionLandingHeader>
     </div>
   )
 }
