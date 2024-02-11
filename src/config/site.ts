@@ -1,5 +1,4 @@
 import { GeistSans } from "geist/font/sans"
-
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
@@ -8,6 +7,7 @@ export const siteConfig = {
   description:
     "Get a well-structured and beautifully designed site up and running in mintues.",
   creator: "Zach Bauer",
+  favicon: "/favicon.ico",
   font: GeistSans,
   navItems: [
     {

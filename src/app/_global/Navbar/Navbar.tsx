@@ -39,7 +39,7 @@ export default function Navbar() {
         wrapper: `transition-all ease-in-out duration-300 rounded-3xl ${
           scrollPosition <= 50
             ? "bg-transparent"
-            : "mt-2.5 mx-5 bg-default/40 dark:bg-default/20 backdrop-blur-2xl shadow-lg"
+            : "mt-1 mx-2.5 bg-default/40 dark:bg-default/20 backdrop-blur-2xl shadow-lg"
         }`,
       }}
     >
@@ -59,7 +59,13 @@ export default function Navbar() {
       <div className="hidden md:flex gap-2.5">
         <NavbarBrand>
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Image src="/favicon.png" width={20} height={20} alt="Site logo" />
+            <Image
+              src={siteConfig.favicon}
+              priority
+              width={20}
+              height={20}
+              alt="Site logo"
+            />
             <p className="font-bold">{siteConfig.name}</p>
           </NextLink>
         </NavbarBrand>
@@ -88,7 +94,8 @@ export default function Navbar() {
             <NavbarBrand>
               <div className="flex justify-start items-center gap-1">
                 <Image
-                  src="/favicon.png"
+                  src={siteConfig.favicon}
+                  priority
                   width={20}
                   height={20}
                   alt="Site logo"
