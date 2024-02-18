@@ -1,4 +1,6 @@
+import { Route } from "next"
 import { GeistSans } from "geist/font/sans"
+
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
@@ -14,7 +16,7 @@ export const siteConfig = {
     },
     {
       label: "Example",
-      href: "/example",
+      href: "/example" as Route,
     },
   ],
   links: {

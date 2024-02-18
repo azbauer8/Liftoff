@@ -1,34 +1,30 @@
 "use client"
-import { link as linkStyles } from "@nextui-org/react"
 
-import { siteConfig } from "@/config/site"
-import clsx from "clsx"
+import Image from "next/image"
 import NextLink from "next/link"
-
-import { ThemeToggle } from "./ThemeToggle"
-
-import {
-  Link,
-  Navbar as NextUINavbar,
-  NavbarBrand,
-  NavbarContent,
-} from "@nextui-org/react"
 import { usePathname } from "next/navigation"
-
-import { useScrollPosition } from "@/hooks"
+import { siteConfig } from "@/config"
+import { useWindowScroll } from "@mantine/hooks"
 import {
   Button,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
+  Link,
+  link as linkStyles,
+  NavbarBrand,
+  NavbarContent,
+  Navbar as NextUINavbar,
 } from "@nextui-org/react"
+import clsx from "clsx"
 import { ChevronDownIcon } from "lucide-react"
-import Image from "next/image"
+
+import { ThemeToggle } from "./ThemeToggle"
 
 export default function Navbar() {
   const path = usePathname()
-  const scrollPosition = useScrollPosition()
+  const [scroll] = useWindowScroll()
   return (
     <NextUINavbar
       maxWidth="xl"
@@ -37,7 +33,7 @@ export default function Navbar() {
       classNames={{
         base: "bg-transparent",
         wrapper: `transition-all ease-in-out duration-300 rounded-3xl ${
-          scrollPosition <= 50
+          scroll.y <= 50
             ? "bg-transparent"
             : "mt-1 mx-2.5 bg-default/40 dark:bg-default/20 backdrop-blur-2xl shadow-lg"
         }`,
@@ -56,9 +52,9 @@ export default function Navbar() {
 
   function DesktopNavLinks() {
     return (
-      <div className="hidden md:flex gap-2.5">
+      <div className="hidden gap-2.5 md:flex">
         <NavbarBrand>
-          <NextLink className="flex justify-start items-center gap-1" href="/">
+          <NextLink className="flex items-center justify-start gap-1" href="/">
             <Image
               src={siteConfig.favicon}
               priority
@@ -89,10 +85,10 @@ export default function Navbar() {
   function MobileNavLinks() {
     return (
       <Dropdown>
-        <DropdownTrigger className="flex md:hidden -translate-x-3">
+        <DropdownTrigger className="flex -translate-x-3 md:hidden">
           <Button variant="light">
             <NavbarBrand>
-              <div className="flex justify-start items-center gap-1">
+              <div className="flex items-center justify-start gap-1">
                 <Image
                   src={siteConfig.favicon}
                   priority
@@ -115,7 +111,7 @@ export default function Navbar() {
               className={clsx(
                 "w-full",
                 path === item.href && "bg-default",
-                linkStyles({ color: "foreground" }),
+                linkStyles({ color: "foreground" })
               )}
             >
               {item.label}

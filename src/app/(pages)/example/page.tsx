@@ -1,4 +1,4 @@
-import { PageDescription, PageHeader, PageTitle } from "@/components/PageHeader"
+import { Metadata } from "next"
 import {
   Button,
   Card,
@@ -6,7 +6,8 @@ import {
   CardFooter,
   CardHeader,
 } from "@nextui-org/react"
-import { Metadata } from "next"
+
+import { PageDescription, PageHeader, PageTitle } from "@/components/PageHeader"
 
 export const metadata: Metadata = {
   title: "Example",
@@ -53,12 +54,12 @@ function ExampleCard() {
       </CardBody>
       <CardFooter className="gap-3">
         <div className="flex gap-1">
-          <p className="font-semibold text-default-600 text-small">4</p>
-          <p className=" text-default-500 text-small">Following</p>
+          <p className="text-small font-semibold text-default-600">4</p>
+          <p className=" text-small text-default-500">Following</p>
         </div>
         <div className="flex gap-1">
-          <p className="font-semibold text-default-600 text-small">97.1K</p>
-          <p className="text-default-500 text-small">Followers</p>
+          <p className="text-small font-semibold text-default-600">97.1K</p>
+          <p className="text-small text-default-500">Followers</p>
         </div>
       </CardFooter>
     </Card>

@@ -1,10 +1,12 @@
-import Footer from "@/app/_global/Footer"
-import Navbar from "@/app/_global/Navbar"
-import { Providers } from "@/app/_global/Providers"
-import "@/app/_global/styles.css"
-import { siteConfig } from "@/config/site"
-import clsx from "clsx"
+import Footer from "@/app/_layout/Footer"
+import Navbar from "@/app/_layout/Navbar"
+import { Providers } from "@/app/_layout/Providers"
+
+import "@/app/_layout/styles.css"
+
 import { Metadata } from "next"
+import { siteConfig } from "@/config"
+import clsx from "clsx"
 
 export const metadata: Metadata = {
   title: {
@@ -28,13 +30,13 @@ export default function RootLayout({
       <body
         className={clsx(
           "bg-background text-foreground antialiased",
-          siteConfig.font.className,
+          siteConfig.font.className
         )}
       >
         <Providers>
-          <div className="relative flex flex-col min-h-screen">
+          <div className="relative flex min-h-screen flex-col">
             <Navbar />
-            <main className="container mx-auto max-w-7xl flex-1 py-10 px-5">
+            <main className="container mx-auto max-w-7xl flex-1 px-5 py-10">
               {children}
             </main>
             <Footer />
