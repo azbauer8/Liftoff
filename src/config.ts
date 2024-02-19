@@ -5,21 +5,21 @@ export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   title: "Liftoff",
-  description: "A starter kit for Next.js with shadcn/ui",
+  description: "A starter kit for Next.js with NextUI",
   creator: "Zach Bauer",
   favicon: "/favicon.ico",
   font: GeistSans,
   navItems: [
     {
       label: "Home",
-      href: "/" as Route,
+      href: "/",
     },
     {
-      label: "Playground",
-      href: "/playground" as Route,
+      label: "Example",
+      href: "/example" as Route,
     },
   ],
   links: {
-    github: "https://github.com/azbauer8/Liftoff",
+    github: "https://github.com/azbauer8/next-starter",
   },
 }

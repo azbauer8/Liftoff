@@ -35,7 +35,7 @@ function PageDescription({
   return (
     <Balance
       className={clsx(
-        "max-w-[1200px] text-base text-muted-foreground sm:text-xl",
+        "max-w-[1200px] text-base text-default-500 sm:text-xl",
         className
       )}
       {...props}

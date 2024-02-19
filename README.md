@@ -1,6 +1,6 @@
 # 🚀Liftoff
 
-A template for creating sites with Next.js 14 (app directory) and shadcn/ui.
+A template for creating sites with Next.js 14 (app directory) and NextUI (v2).
 
 ## Features
 
@@ -11,8 +11,9 @@ A template for creating sites with Next.js 14 (app directory) and shadcn/ui.
 ## Technologies Used
 
 - [Next.js 14](https://nextjs.org/docs/getting-started)
-- [shadcn/ui](https://ui.shadcn.com/)
+- [NextUI v2](https://nextui.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)

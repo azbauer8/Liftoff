@@ -17,7 +17,7 @@
     "^@/lib/(.*)$",
     "^@/hooks/(.*)$",
     "^@/components/ui/(.*)$",
-    "^@/components/(.*)$", 
+    "^@/components/(.*)$",
     "^@/styles/(.*)$",
     "^@/app/(.*)$",
     "",
