@@ -1,12 +1,26 @@
 "use client"
 
-import * as React from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@nextui-org/react"
-import { MoonIcon, SunIcon } from "lucide-react"
+import { MoonIcon, SunIcon, SunMoonIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 
 export function ThemeToggle() {
+  const [mounted, setMounted] = useState(false)
   const { theme, systemTheme, setTheme } = useTheme()
+  if (theme !== undefined && theme === systemTheme) setTheme("system")
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <Button isIconOnly variant="light" aria-label="Theme toggle placeholder">
+        <SunMoonIcon className="size-[1.2rem]" />
+      </Button>
+    )
+  }
 
   function toggleTheme() {
     if (theme === "system") {
@@ -23,8 +37,9 @@ export function ThemeToggle() {
       aria-label="Theme toggle"
       onClick={toggleTheme}
     >
-      <SunIcon className="size-[1.2rem] scale-100 dark:hidden" />
-      <MoonIcon className="hidden size-[1.2rem] dark:block" />
+      {theme === "light" && <SunIcon className="size-[1.2rem]" />}
+      {theme === "dark" && <MoonIcon className="size-[1.2rem]" />}
+      {theme === "system" && <SunMoonIcon className="size-[1.2rem]" />}
     </Button>
   )
 }

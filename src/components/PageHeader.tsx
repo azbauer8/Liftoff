@@ -7,7 +7,7 @@ function PageHeader({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <section className={clsx("flex flex-col gap-2 pb-7", className)} {...props}>
+    <section className={clsx("flex flex-col gap-2", className)} {...props}>
       {children}
     </section>
   )

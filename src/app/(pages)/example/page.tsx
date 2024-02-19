@@ -1,67 +1,108 @@
-import { Metadata } from "next"
+"use client"
+
 import {
   Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
 } from "@nextui-org/react"
+import { toast } from "sonner"
 
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/Drawer"
 import { PageDescription, PageHeader, PageTitle } from "@/components/PageHeader"
+import { Sheet, SheetBody, SheetContent, SheetHeader } from "@/components/Sheet"
 
-export const metadata: Metadata = {
-  title: "Example",
-}
 export default function ExamplePage() {
-  return (
-    <div>
-      <PageHeader>
-        <PageTitle>Example Page</PageTitle>
-        <PageDescription>
-          Enim voluptate aute do pariatur proident esse enim dolor mollit. Lorem
-          Lorem sunt deserunt elit nulla et laboris cupidatat consectetur non.
-          Dolore reprehenderit tempor qui in aliqua irure in sit.
-        </PageDescription>
-      </PageHeader>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <ExampleCard />
-        <ExampleCard />
-        <ExampleCard />
-        <ExampleCard />
-        <ExampleCard />
-        <ExampleCard />
-      </div>
-    </div>
-  )
-}
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
-function ExampleCard() {
   return (
-    <Card>
-      <CardHeader className="justify-between">
-        <h1 className="text-lg font-semibold leading-none text-default-600">
-          Et occaecat cillum.
-        </h1>
-        <Button color="primary" radius="full" size="sm" variant={"solid"}>
-          Follow
+    <>
+      <title>Example</title>
+      <div className="space-y-5">
+        <PageHeader>
+          <PageTitle>Example Page</PageTitle>
+          <PageDescription>
+            Enim voluptate aute do pariatur proident esse enim dolor mollit.
+            Lorem Lorem sunt deserunt elit nulla et laboris cupidatat
+            consectetur non. Dolore reprehenderit tempor qui in aliqua irure in
+            sit.
+          </PageDescription>
+        </PageHeader>
+        <Button
+          onClick={() =>
+            toast.success("Event has been created.", {
+              description: "Event has been created.",
+              action: {
+                label: "Undo",
+                onClick: () => console.log("Undo"),
+              },
+            })
+          }
+        >
+          Toast me bro
         </Button>
-      </CardHeader>
-      <CardBody className="px-3 py-0 text-small text-default-500">
-        <p>
-          Voluptate in labore incididunt deserunt deserunt aliquip pariatur
-          dolore cupidatat reprehenderit.
-        </p>
-      </CardBody>
-      <CardFooter className="gap-3">
-        <div className="flex gap-1">
-          <p className="text-small font-semibold text-default-600">4</p>
-          <p className=" text-small text-default-500">Following</p>
-        </div>
-        <div className="flex gap-1">
-          <p className="text-small font-semibold text-default-600">97.1K</p>
-          <p className="text-small text-default-500">Followers</p>
-        </div>
-      </CardFooter>
-    </Card>
+        <Button onPress={onOpen}>Open Modal</Button>
+        <Sheet side="left" isOpen={isOpen} onOpenChange={onOpenChange}>
+          <SheetContent>
+            <SheetHeader className="flex flex-col gap-1">
+              Modal Title
+            </SheetHeader>
+            <SheetBody>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                pulvinar risus non risus hendrerit venenatis. Pellentesque sit
+                amet hendrerit risus, sed porttitor quam.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                pulvinar risus non risus hendrerit venenatis. Pellentesque sit
+                amet hendrerit risus, sed porttitor quam.
+              </p>
+              <p>
+                Magna exercitation reprehenderit magna aute tempor cupidatat
+                consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
+                incididunt cillum quis. Velit duis sit officia eiusmod Lorem
+                aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi
+                consectetur esse laborum eiusmod pariatur proident Lorem eiusmod
+                et. Culpa deserunt nostrud ad veniam.
+              </p>
+            </SheetBody>
+            <ModalFooter>asdasd</ModalFooter>
+          </SheetContent>
+        </Sheet>
+        <Drawer>
+          <DrawerTrigger asChild>
+            <Button variant="outline">Open Drawer</Button>
+          </DrawerTrigger>
+          <DrawerContent>
+            <DrawerHeader>
+              <DrawerTitle>Move Goal</DrawerTitle>
+              <DrawerDescription>
+                Set your daily activity goal.
+              </DrawerDescription>
+            </DrawerHeader>
+            <div className="p-4 pb-0">asd asd asd asd</div>
+            <DrawerFooter>
+              <Button>Submit</Button>
+              <DrawerClose asChild>
+                <Button variant="outline">Cancel</Button>
+              </DrawerClose>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+      </div>
+    </>
   )
 }

@@ -12,6 +12,7 @@ import {
   DropdownMenu,
   DropdownTrigger,
   Link,
+  //@ts-expect-error it's right, idk
   link as linkStyles,
   NavbarBrand,
   NavbarContent,
@@ -52,7 +53,7 @@ export default function Navbar() {
 
   function DesktopNavLinks() {
     return (
-      <div className="hidden gap-2.5 md:flex">
+      <div className="hidden gap-4 md:flex">
         <NavbarBrand>
           <NextLink className="flex items-center justify-start gap-1" href="/">
             <Image

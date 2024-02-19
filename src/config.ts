@@ -12,7 +12,7 @@ export const siteConfig = {
   navItems: [
     {
       label: "Home",
-      href: "/",
+      href: "/" as Route,
     },
     {
       label: "Example",
