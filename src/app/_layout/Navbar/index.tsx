@@ -12,7 +12,6 @@ import {
   DropdownMenu,
   DropdownTrigger,
   Link,
-  //@ts-expect-error it's right, idk
   link as linkStyles,
   NavbarBrand,
   NavbarContent,

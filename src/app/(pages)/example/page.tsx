@@ -84,7 +84,7 @@ export default function ExamplePage() {
         </Sheet>
         <Drawer>
           <DrawerTrigger asChild>
-            <Button variant="outline">Open Drawer</Button>
+            <Button>Open Drawer</Button>
           </DrawerTrigger>
           <DrawerContent>
             <DrawerHeader>
@@ -97,7 +97,7 @@ export default function ExamplePage() {
             <DrawerFooter>
               <Button>Submit</Button>
               <DrawerClose asChild>
-                <Button variant="outline">Cancel</Button>
+                <Button>Cancel</Button>
               </DrawerClose>
             </DrawerFooter>
           </DrawerContent>

@@ -9,7 +9,9 @@ import {
 
 const Sheet = React.forwardRef<
   React.ElementRef<typeof Modal>,
-  React.ComponentPropsWithoutRef<typeof Modal>
+  React.ComponentPropsWithoutRef<typeof Modal> & {
+    side?: "left" | "right"
+  }
 >(({ className, children, side, ...props }, ref) => (
   <Modal
     className={className}
