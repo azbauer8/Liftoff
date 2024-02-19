@@ -1,7 +1,7 @@
-import { Route } from "next"
+import Link from "next/link"
 import { siteConfig } from "@/config"
-import { Button, Link } from "@nextui-org/react"
 
+import { Button } from "@/components/ui/button"
 import {
   LandingActions,
   LandingDescription,
@@ -13,24 +13,19 @@ export default function Home() {
   return (
     <div>
       <MotionLandingHeader>
-        <LandingTitle>A starter kit for Next.js with NextUI</LandingTitle>
+        <LandingTitle>{siteConfig.description}</LandingTitle>
         <LandingDescription>
           Get a well-structured and beautifully designed site up and running in
           mintues.
         </LandingDescription>
         <LandingActions>
-          <Button href={"/example" as Route} as={Link} variant="flat">
-            Example Page
+          <Button asChild>
+            <Link href="/playground">Playground</Link>
           </Button>
-          <Button
-            href={siteConfig.links.github}
-            as={Link}
-            color="primary"
-            showAnchorIcon
-            variant="flat"
-            isExternal
-          >
-            Source Code
+          <Button variant="secondary" asChild>
+            <a href={siteConfig.links.github} target="_blank">
+              Source Code
+            </a>
           </Button>
         </LandingActions>
       </MotionLandingHeader>

@@ -1,124 +1,58 @@
 "use client"
 
 import Image from "next/image"
-import NextLink from "next/link"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { siteConfig } from "@/config"
-import { useWindowScroll } from "@mantine/hooks"
-import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-  Link,
-  link as linkStyles,
-  NavbarBrand,
-  NavbarContent,
-  Navbar as NextUINavbar,
-} from "@nextui-org/react"
 import clsx from "clsx"
-import { ChevronDownIcon } from "lucide-react"
 
 import { ThemeToggle } from "./ThemeToggle"
 
 export default function Navbar() {
-  const path = usePathname()
-  const [scroll] = useWindowScroll()
   return (
-    <NextUINavbar
-      maxWidth="xl"
-      position="sticky"
-      isBlurred={false}
-      classNames={{
-        base: "bg-transparent",
-        wrapper: `transition-all ease-in-out duration-300 rounded-3xl ${
-          scroll.y <= 50
-            ? "bg-transparent"
-            : "mt-1 mx-2.5 bg-default/40 dark:bg-default/20 backdrop-blur-2xl shadow-lg"
-        }`,
-      }}
-    >
-      <NavbarContent as="div" justify="start">
-        <DesktopNavLinks />
-        <MobileNavLinks />
-      </NavbarContent>
-
-      <NavbarContent as="div" justify="end">
-        <ThemeToggle />
-      </NavbarContent>
-    </NextUINavbar>
-  )
-
-  function DesktopNavLinks() {
-    return (
-      <div className="hidden gap-2.5 md:flex">
-        <NavbarBrand>
-          <NextLink className="flex items-center justify-start gap-1" href="/">
-            <Image
-              src={siteConfig.favicon}
-              priority
-              width={20}
-              height={20}
-              alt="Site logo"
-            />
-            <p className="font-bold">{siteConfig.title}</p>
-          </NextLink>
-        </NavbarBrand>
-
-        <div className="space-x-1">
-          {siteConfig.navItems.map((item) => (
-            <Button
-              key={item.href}
-              href={item.href}
-              as={Link}
-              variant={path === item.href ? "flat" : "light"}
-            >
-              {item.label}
-            </Button>
-          ))}
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 max-w-screen-2xl items-center">
+        <MainNav />
+        <div className="flex flex-1 items-center justify-end space-x-2">
+          <ThemeToggle />
         </div>
       </div>
-    )
-  }
+    </header>
+  )
+}
 
-  function MobileNavLinks() {
-    return (
-      <Dropdown>
-        <DropdownTrigger className="flex -translate-x-3 md:hidden">
-          <Button variant="light">
-            <NavbarBrand>
-              <div className="flex items-center justify-start gap-1">
-                <Image
-                  src={siteConfig.favicon}
-                  priority
-                  width={20}
-                  height={20}
-                  alt="Site logo"
-                />
-                <p className="font-bold">{siteConfig.title}</p>
-              </div>
-            </NavbarBrand>
-            <ChevronDownIcon size={20} />
-          </Button>
-        </DropdownTrigger>
-        <DropdownMenu aria-label="Static Actions">
-          {siteConfig.navItems.map((item) => (
-            <DropdownItem
-              key={item.href}
-              as={Link}
-              href={item.href}
-              className={clsx(
-                "w-full",
-                path === item.href && "bg-default",
-                linkStyles({ color: "foreground" })
-              )}
-            >
-              {item.label}
-            </DropdownItem>
-          ))}
-        </DropdownMenu>
-      </Dropdown>
-    )
-  }
+function MainNav() {
+  const pathname = usePathname()
+  return (
+    <div className="mr-4 flex">
+      <Link href="/" className="mr-6 flex items-center space-x-2">
+        <Image
+          src="/favicon.ico"
+          alt="Logo"
+          className="size-6"
+          width={32}
+          height={32}
+        />
+        <span className="hidden font-bold sm:inline-block">
+          {siteConfig.title}
+        </span>
+      </Link>
+      <nav className="flex items-center gap-6 text-sm">
+        {siteConfig.navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={clsx(
+              "transition-colors hover:text-foreground/80",
+              pathname === item.href
+                ? "text-foreground"
+                : "text-muted-foreground"
+            )}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+    </div>
+  )
 }

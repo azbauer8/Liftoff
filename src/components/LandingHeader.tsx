@@ -12,7 +12,7 @@ function LandingHeader({
   return (
     <section
       className={clsx(
-        "mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20",
+        "mx-auto flex max-w-5xl flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20",
         className
       )}
       {...props}
@@ -38,7 +38,7 @@ function MotionLandingHeader({
       transition={{ duration: 1 }}
       variants={blurAnimation}
       className={clsx(
-        "mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20",
+        "mx-auto flex max-w-5xl flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20",
         className
       )}
       {...props}
@@ -70,7 +70,7 @@ function LandingDescription({
   return (
     <Balance
       className={clsx(
-        "max-w-[750px] text-center text-lg text-default-500 sm:text-xl",
+        "max-w-[750px] text-center text-lg text-muted-foreground sm:text-xl",
         className
       )}
       {...props}
