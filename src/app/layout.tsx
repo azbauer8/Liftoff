@@ -1,13 +1,13 @@
-import { Toaster } from "@/components/Toast"
 import Footer from "@/app/_layout/Footer"
 import Navbar from "@/app/_layout/Navbar"
 import { Providers } from "@/app/_layout/Providers"
+import { Toaster } from "@/components/Toast"
 
 import "@/styles.css"
 
-import { Metadata } from "next"
 import { siteConfig } from "@/config"
 import clsx from "clsx"
+import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: {
@@ -26,12 +26,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head />
       <body
         className={clsx(
           "bg-background text-foreground antialiased",
-          siteConfig.font.className
+          siteConfig.font.className,
         )}
       >
         <Providers>

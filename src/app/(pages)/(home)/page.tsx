@@ -1,4 +1,3 @@
-import { Route } from "next"
 import { siteConfig } from "@/config"
 import { Button, Link } from "@nextui-org/react"
 
@@ -8,6 +7,7 @@ import {
   LandingTitle,
   MotionLandingHeader,
 } from "@/components/LandingHeader"
+import { Route } from "next"
 
 export default function Home() {
   return (
@@ -19,8 +19,8 @@ export default function Home() {
           mintues.
         </LandingDescription>
         <LandingActions>
-          <Button href={"/example" as Route} as={Link} variant="flat">
-            Example Page
+          <Button href={"/playground" as Route} as={Link} variant="flat">
+            Playground
           </Button>
           <Button
             href={siteConfig.links.github}

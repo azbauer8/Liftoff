@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import clsx from "clsx"
+import * as React from "react"
 import { Drawer as DrawerPrimitive } from "vaul"
 
 const Drawer = ({
@@ -42,13 +42,13 @@ const DrawerContent = React.forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={clsx(
-        "fixed inset-x-0 bottom-0 z-50 mx-2 mt-24 flex h-auto flex-col rounded-t-[10px] border border-divider bg-background",
-        className
+        "fixed inset-x-0 bottom-0 z-50 mx-2 mt-24 flex h-auto flex-col rounded-t-[10px] border border-divider bg-background focus:outline-0",
+        className,
       )}
       {...props}
     >
       <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-default" />
-      {children}
+      <div className="flex flex-col mx-auto w-full max-w-4xl">{children}</div>
     </DrawerPrimitive.Content>
   </DrawerPortal>
 ))
@@ -84,7 +84,7 @@ const DrawerTitle = React.forwardRef<
     ref={ref}
     className={clsx(
       "text-lg font-semibold leading-none tracking-tight",
-      className
+      className,
     )}
     {...props}
   />

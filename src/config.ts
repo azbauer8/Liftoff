@@ -1,4 +1,3 @@
-import { Route } from "next"
 import { GeistSans } from "geist/font/sans"
 
 export type SiteConfig = typeof siteConfig
@@ -9,16 +8,6 @@ export const siteConfig = {
   creator: "Zach Bauer",
   favicon: "/favicon.ico",
   font: GeistSans,
-  navItems: [
-    {
-      label: "Home",
-      href: "/" as Route,
-    },
-    {
-      label: "Example",
-      href: "/example" as Route,
-    },
-  ],
   links: {
     github: "https://github.com/azbauer8/next-starter",
   },

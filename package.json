@@ -6,18 +6,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write ."
+    "lint": "npx biome lint .",
+    "format": "npx biome format --write ./src"
   },
   "dependencies": {
-    "@mantine/hooks": "^7.5.3",
     "@nextui-org/react": "^2.2.9",
     "@types/node": "20.5.7",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "@uidotdev/usehooks": "^2.4.1",
     "autoprefixer": "10.4.16",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "cmdk": "^0.2.1",
+    "embla-carousel-react": "^8.0.0-rc23",
     "framer-motion": "^10.16.4",
     "geist": "^1.2.2",
     "lucide-react": "^0.323.0",
@@ -26,25 +28,17 @@
     "postcss": "8.4.31",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-resizable-panels": "^2.0.9",
     "react-wrap-balancer": "^1.1.0",
     "sonner": "^1.4.0",
     "tailwind-variants": "^0.1.18",
     "tailwindcss": "^3.4.1",
     "typescript": "5.0.4",
-    "vaul": "^0.9.0"
+    "vaul": "^0.9.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
-    "@types/json-schema": "^7.0.15",
-    "@typescript-eslint/eslint-plugin": "^7.0.1",
-    "@typescript-eslint/parser": "^7.0.1",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.1.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "eslint-plugin-tailwindcss": "^3.14.2",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11"
+    "@biomejs/biome": "^1.5.3",
+    "@types/json-schema": "^7.0.15"
   }
 }

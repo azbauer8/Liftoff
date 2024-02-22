@@ -1,10 +1,6 @@
 "use client"
 
-import Image from "next/image"
-import NextLink from "next/link"
-import { usePathname } from "next/navigation"
 import { siteConfig } from "@/config"
-import { useWindowScroll } from "@mantine/hooks"
 import {
   Button,
   Dropdown,
@@ -12,19 +8,24 @@ import {
   DropdownMenu,
   DropdownTrigger,
   Link,
-  link as linkStyles,
+  Navbar as NextUINavbar,
   NavbarBrand,
   NavbarContent,
-  Navbar as NextUINavbar,
+  link as linkStyles,
 } from "@nextui-org/react"
 import clsx from "clsx"
 import { ChevronDownIcon } from "lucide-react"
+import Image from "next/image"
+import NextLink from "next/link"
+import { usePathname } from "next/navigation"
 
+import { useWindowScroll } from "@uidotdev/usehooks"
 import { ThemeToggle } from "./ThemeToggle"
+import navItems from "./navItems"
 
 export default function Navbar() {
   const path = usePathname()
-  const [scroll] = useWindowScroll()
+  const [{ y }] = useWindowScroll()
   return (
     <NextUINavbar
       maxWidth="xl"
@@ -33,9 +34,9 @@ export default function Navbar() {
       classNames={{
         base: "bg-transparent",
         wrapper: `transition-all ease-in-out duration-300 rounded-3xl ${
-          scroll.y <= 50
-            ? "bg-transparent"
-            : "mt-1 mx-2.5 bg-default/40 dark:bg-default/20 backdrop-blur-2xl shadow-lg"
+          y && y > 50
+            ? "mt-1 mx-2.5 bg-default/40 dark:bg-default/20 backdrop-blur-2xl shadow-lg"
+            : "bg-transparent"
         }`,
       }}
     >
@@ -67,7 +68,7 @@ export default function Navbar() {
         </NavbarBrand>
 
         <div className="space-x-1">
-          {siteConfig.navItems.map((item) => (
+          {navItems.map((item) => (
             <Button
               key={item.href}
               href={item.href}
@@ -103,7 +104,7 @@ export default function Navbar() {
           </Button>
         </DropdownTrigger>
         <DropdownMenu aria-label="Static Actions">
-          {siteConfig.navItems.map((item) => (
+          {navItems.map((item) => (
             <DropdownItem
               key={item.href}
               as={Link}
@@ -111,7 +112,7 @@ export default function Navbar() {
               className={clsx(
                 "w-full",
                 path === item.href && "bg-default",
-                linkStyles({ color: "foreground" })
+                linkStyles({ color: "foreground" }),
               )}
             >
               {item.label}
