@@ -14,7 +14,7 @@ A template for creating sites with Next.js 14 (app router) and NextUI (v2).
 - Statically typed links with Next.js `experimental.typedRoutes` feature
 
   - Next.js Link href's will have route autocomplete
-  - In any other context where you may be linking to a route, you can get the same functionality by typing the string as a Route (imported from 'next')
+  - In any other context where you may be linking to a route, you can get the same functionality by typing the string as a Route
     - ```typescript
       import { Route } from "next"
 
