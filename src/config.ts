@@ -9,6 +9,7 @@ export const siteConfig = {
   favicon: "/favicon.ico",
   font: GeistSans,
   links: {
-    github: "https://github.com/azbauer8/next-starter",
+    github: "https://github.com/azbauer8/liftoff",
+    components: "https://github.com/azbauer8/NextUI-Enhanced",
   },
 }

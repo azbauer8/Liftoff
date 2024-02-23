@@ -1,7 +1,6 @@
 const h1 = "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl my-5"
 
-const h2 =
-  "scroll-m-20 border-b border-divider pb-2 text-3xl font-semibold tracking-tight first:mt-0 my-3"
+const h2 = "scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 my-3"
 
 const h3 = "scroll-m-20 text-2xl font-semibold tracking-tight my-3"
 

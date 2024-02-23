@@ -19,8 +19,8 @@ import Image from "next/image"
 import NextLink from "next/link"
 import { usePathname } from "next/navigation"
 
+import { ThemeToggle } from "@/components/ThemeToggle"
 import { useWindowScroll } from "@uidotdev/usehooks"
-import { ThemeToggle } from "./ThemeToggle"
 import navItems from "./navItems"
 
 export default function Navbar() {
@@ -30,7 +30,7 @@ export default function Navbar() {
     <NextUINavbar
       maxWidth="xl"
       position="sticky"
-      isBlurred={false}
+      isBlurred={true}
       classNames={{
         base: "bg-transparent",
         wrapper: `transition-all ease-in-out duration-300 rounded-3xl ${

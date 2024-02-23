@@ -7,7 +7,6 @@ import {
   LandingTitle,
   MotionLandingHeader,
 } from "@/components/LandingHeader"
-import { Route } from "next"
 
 export default function Home() {
   return (
@@ -16,11 +15,17 @@ export default function Home() {
         <LandingTitle>A starter kit for Next.js with NextUI</LandingTitle>
         <LandingDescription>
           Get a well-structured and beautifully designed site up and running in
-          mintues.
+          minutes.
         </LandingDescription>
         <LandingActions>
-          <Button href={"/playground" as Route} as={Link} variant="flat">
-            Playground
+          <Button
+            href={siteConfig.links.components}
+            as={Link}
+            showAnchorIcon
+            variant="flat"
+            isExternal
+          >
+            Custom Components
           </Button>
           <Button
             href={siteConfig.links.github}

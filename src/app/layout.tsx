@@ -1,7 +1,6 @@
 import Footer from "@/app/_layout/Footer"
-import Navbar from "@/app/_layout/Navbar"
+import Navbar from "@/app/_layout/Navbar/Navbar"
 import { Providers } from "@/app/_layout/Providers"
-import { Toaster } from "@/components/Toast"
 
 import "@/styles.css"
 
@@ -42,7 +41,6 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
-          <Toaster closeButton />
         </Providers>
       </body>
     </html>
