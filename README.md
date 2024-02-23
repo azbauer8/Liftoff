@@ -1,6 +1,6 @@
 # 🚀Liftoff
 
-A template for creating sites with Next.js 14 (app directory) and NextUI (v2).
+A template for creating sites with Next.js 14 (app router) and NextUI (v2).
 
 ## Features
 
