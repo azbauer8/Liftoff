@@ -15,7 +15,7 @@ A template for creating sites with Next.js 14 (app router) and NextUI (v2).
 
   - Next.js Link href's will have route autocomplete
   - In any other context where you may be linking to a route, you can get the same functionality by typing the string as a Route
-    - ```typescript
+    ```typescript
       import { Route } from "next"
 
       const example = "/example" as Route
