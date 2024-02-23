@@ -1,5 +1,3 @@
-import { GeistSans } from "geist/font/sans"
-
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
@@ -7,7 +5,6 @@ export const siteConfig = {
   description: "A starter kit for Next.js with NextUI",
   creator: "Zach Bauer",
   favicon: "/favicon.ico",
-  font: GeistSans,
   links: {
     github: "https://github.com/azbauer8/liftoff",
     components: "https://github.com/azbauer8/NextUI-Enhanced",

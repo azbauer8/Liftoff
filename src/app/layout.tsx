@@ -7,6 +7,7 @@ import "@/styles.css"
 import { siteConfig } from "@/config"
 import clsx from "clsx"
 import { Metadata } from "next"
+import { Inter } from "next/font/google"
 
 export const metadata: Metadata = {
   title: {
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
     icon: siteConfig.favicon,
   },
 }
+const inter = Inter({ subsets: ["latin"] })
 
 export default function RootLayout({
   children,
@@ -30,7 +32,7 @@ export default function RootLayout({
       <body
         className={clsx(
           "bg-background text-foreground antialiased",
-          siteConfig.font.className,
+          inter.className,
         )}
       >
         <Providers>
