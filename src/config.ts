@@ -7,6 +7,6 @@ export const siteConfig = {
   favicon: "/favicon.ico",
   links: {
     github: "https://github.com/azbauer8/liftoff",
-    components: "https://github.com/azbauer8/NextUI-Enhanced",
+    components: "https://nextui.byzach.dev/",
   },
 }
