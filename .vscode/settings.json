@@ -3,7 +3,6 @@
   "files.exclude": {
     ".next": true,
     "node_modules": true,
-    ".gitignore": true,
-    ".vscode": true
+    ".gitignore": true
   }
 }
