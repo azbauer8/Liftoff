@@ -1,8 +1,4 @@
-import { siteConfig } from "@/config"
-import { Button, Link } from "@nextui-org/react"
-
 import {
-  LandingActions,
   LandingDescription,
   LandingTitle,
   MotionLandingHeader,
@@ -12,32 +8,12 @@ export default function Home() {
   return (
     <div>
       <MotionLandingHeader>
-        <LandingTitle>A starter kit for Next.js with NextUI</LandingTitle>
+        <LandingTitle>
+          A repository of web dev stacks for you to catalog and discover.
+        </LandingTitle>
         <LandingDescription>
-          Get a well-structured and beautifully designed site up and running in
-          minutes.
+          Sign in with GitHub to create your own!
         </LandingDescription>
-        <LandingActions>
-          <Button
-            href={siteConfig.links.components}
-            as={Link}
-            showAnchorIcon
-            variant="flat"
-            isExternal
-          >
-            Custom Components
-          </Button>
-          <Button
-            href={siteConfig.links.github}
-            as={Link}
-            color="primary"
-            showAnchorIcon
-            variant="flat"
-            isExternal
-          >
-            Source Code
-          </Button>
-        </LandingActions>
       </MotionLandingHeader>
     </div>
   )

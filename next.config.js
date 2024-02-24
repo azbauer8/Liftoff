@@ -4,6 +4,14 @@ const nextConfig = {
     ppr: true,
     typedRoutes: true,
   },
+  images: {
+    dangerouslyAllowSVG: true,
+    remotePatterns: [
+      {
+        hostname: "kruftqkiwlqjyyjvwxsu.supabase.co",
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

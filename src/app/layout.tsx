@@ -1,5 +1,4 @@
 import Footer from "@/app/_layout/Footer"
-import Navbar from "@/app/_layout/Navbar/Navbar"
 import { Providers } from "@/app/_layout/Providers"
 
 import "@/styles.css"
@@ -8,6 +7,7 @@ import { siteConfig } from "@/config"
 import clsx from "clsx"
 import { Metadata } from "next"
 import { Inter } from "next/font/google"
+import Nav from "./_layout/Nav"
 
 export const metadata: Metadata = {
   title: {
@@ -37,7 +37,7 @@ export default function RootLayout({
       >
         <Providers>
           <div className="relative flex min-h-screen flex-col">
-            <Navbar />
+            <Nav />
             <main className="container mx-auto max-w-7xl flex-1 px-5 py-10">
               {children}
             </main>
